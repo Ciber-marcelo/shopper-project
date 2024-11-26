@@ -1,0 +1,32 @@
+# version: '3.9'
+services:
+  backend:
+    build:
+      context: ./backend
+    env_file:
+      - .env  # Aponta para o arquivo na raiz do projeto
+    ports:
+      - "8080:8080"
+    container_name: backend
+    networks:
+      - app-network
+
+  frontend:
+    build:
+      context: ./frontend
+    # env_file:
+    #   - .env.frontend  # Aponta para o arquivo na raiz do projeto
+    ports:
+      - "80:80"
+    container_name: frontend
+    depends_on:
+      - backend
+    # environment:
+    #   - REACT_APP_API_URL=http://backend:8080  # Definindo a variável de ambiente
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
+

@@ -1,0 +1,14 @@
+.DCContainer {
+   display: flex;
+   gap: 0.5rem;
+   font-size: 12px;
+}
+
+.DCText1 {
+   
+   font-weight: bold;
+}
+
+.DCText2{
+   text-align: start;
+}
